@@ -1,4 +1,5 @@
 import { TypeAnimation } from "react-type-animation";
+
 import {
   FaGithub,
   FaLinkedin,
@@ -12,8 +13,8 @@ import {
 
 import Button from "../components/Button";
 import Container from "../components/Container";
-
-import profile from "../assets/images/profile.jpg";
+import LanyardCard from "../components/LanyardCard";
+import profile from "../assets/images/profile.png";
 
 function Hero() {
 
@@ -23,171 +24,231 @@ function Hero() {
       label: "Years Experience",
     },
     {
-      number: "4+",
-      label: "Featured Projects",
+      number: "4",
+      label: "Networking Projects",
     },
     {
-      number: "15+",
-      label: "Technologies",
+      number: "20+",
+      label: "Networking Technologies",
     },
     {
-      number: "100%",
-      label: "Passion",
+      number: "24/7",
+      label: "Continuous Learning",
     },
   ];
 
   return (
     <section
       id="home"
-      className="relative overflow-hidden bg-slate-950 pt-32"
+      className="relative overflow-hidden bg-slate-950 pt-32 pb-20"
     >
 
-      {/* Background Glow */}
+      {/* Background */}
 
-      <div className="absolute left-1/2 top-40 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[180px]" />
+      <div className="absolute inset-0">
+
+        <div className="absolute left-1/2 top-40 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-cyan-500/10 blur-[180px]" />
+
+        <div className="absolute right-0 top-0 h-[450px] w-[450px] rounded-full bg-cyan-400/5 blur-[150px]" />
+
+        <div className="absolute bottom-0 left-0 h-[350px] w-[350px] rounded-full bg-cyan-500/5 blur-[120px]" />
+
+        <div className="absolute left-20 top-40 h-3 w-3 rounded-full bg-cyan-400/40 blur-sm" />
+
+        <div className="absolute right-40 top-64 h-2 w-2 rounded-full bg-sky-400/40 blur-sm" />
+
+        <div className="absolute bottom-40 left-1/3 h-2 w-2 rounded-full bg-cyan-300/30 blur-sm" />
+
+        <div className="absolute right-24 bottom-20 h-4 w-4 rounded-full bg-cyan-400/20 blur-md" />
+
+      </div>
 
       <Container>
 
-        <div className="grid min-h-[85vh] items-center gap-20 lg:grid-cols-2">
+        <div className="grid min-h-[82vh] items-center gap-20 lg:grid-cols-2">
 
-          {/* ========================= */}
           {/* LEFT CONTENT */}
-          {/* ========================= */}
 
-          <div>
+          <div className="relative z-10">
 
-            <p className="mb-6 uppercase tracking-[6px] text-cyan-400">
-              Welcome To My Portfolio
-            </p>
+            <div className="inline-flex items-center rounded-full border border-cyan-500/20 bg-cyan-500/5 px-5 py-2">
 
-            <h1 className="text-5xl font-black leading-tight md:text-7xl">
+              <span className="text-xs font-semibold uppercase tracking-[4px] text-cyan-400">
 
-              Hi, I'm
+                NETWORK ENGINEER
 
-              <br />
-
-              <span className="text-white">
-                FERI SIGIT
               </span>
 
-              <br />
+            </div>
 
-              <span className="text-cyan-400">
+            <p className="mt-5 text-sm uppercase tracking-[3px] text-slate-500">
+
+              Infrastructure • Linux • Enterprise Networking
+
+            </p>
+
+            <h1 className="mt-8 text-6xl font-black leading-none md:text-7xl lg:text-8xl">
+
+              <span className="block text-white">
+
+                FERI
+
+              </span>
+
+              <span className="mt-2 block text-white">
+
+                SIGIT
+
+              </span>
+
+              <span className="mt-2 block bg-gradient-to-r from-cyan-400 via-sky-300 to-cyan-500 bg-clip-text text-transparent">
+
                 PRATAMA
+
               </span>
 
             </h1>
-
-            <div className="mt-8 text-2xl font-semibold text-slate-300">
+                        <div className="mt-8 text-2xl font-semibold text-slate-300">
 
               <TypeAnimation
                 sequence={[
-                  "Network Engineer",
-                  2000,
                   "Network Operations Center",
                   2000,
-                  "Information Technology Enthusiast",
+                  "Network Engineer",
+                  2000,
+                  "Infrastructure Enthusiast",
+                  2000,
+                  "Linux System Administrator",
                   2000,
                 ]}
-                speed={40}
+                speed={45}
                 repeat={Infinity}
               />
 
             </div>
 
             <p className="mt-8 max-w-xl text-lg leading-9 text-slate-400">
-              Designing, building, and operating scalable enterprise
-              network infrastructure with expertise in routing,
-              switching, virtualization, Linux, and network
-              operations.
+
+              Designing, building, and maintaining reliable
+              enterprise and ISP network infrastructure
+              with expertise in routing, switching,
+              Linux, virtualization, and network operations.
+
+              Passionate about creating scalable,
+              secure, and high-availability network
+              solutions.
+
             </p>
 
-                {/* PART 2 DIMULAI DARI SINI */}
-                        <div className="mt-10 flex flex-wrap gap-5">
+            <div className="mt-12 flex flex-wrap gap-5">
 
               <Button>
+
                 <span className="flex items-center gap-2">
+
                   View Projects
+
                   <FiArrowRight size={18} />
+
                 </span>
+
               </Button>
 
-<a
-  href="/resume/Feri-Sigit-Pratama-Resume.pdf"
-  download
->
-  <Button variant="secondary">
-    <span className="flex items-center gap-2">
-      Download Resume
-      <FiDownload size={18} />
-    </span>
-  </Button>
-</a>
+              <a
+                href="/resume/Feri-Sigit-Pratama-Resume.pdf"
+                download
+              >
+
+                <Button variant="secondary">
+
+                  <span className="flex items-center gap-2">
+
+                    Download Resume
+
+                    <FiDownload size={18} />
+
+                  </span>
+
+                </Button>
+
+              </a>
 
             </div>
 
-            {/* Social Media */}
-
-            <div className="mt-12 flex items-center gap-6">
+            <div className="mt-12 flex flex-wrap gap-4">
 
               <a
                 href="https://github.com/ferisigitpratama"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-700 text-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:text-cyan-400"
+                className="group flex items-center gap-3 rounded-xl border border-slate-700 bg-slate-900/40 px-5 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400"
               >
-                <FaGithub />
+
+                <FaGithub className="text-xl text-white transition group-hover:text-cyan-400" />
+
+                <span className="text-sm font-medium">
+
+                  GitHub
+
+                </span>
+
               </a>
 
               <a
                 href="https://linkedin.com/in/ferisigitpratama11"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-700 text-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:text-cyan-400"
+                className="group flex items-center gap-3 rounded-xl border border-slate-700 bg-slate-900/40 px-5 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400"
               >
-                <FaLinkedin />
+
+                <FaLinkedin className="text-xl text-white transition group-hover:text-cyan-400" />
+
+                <span className="text-sm font-medium">
+
+                  LinkedIn
+
+                </span>
+
               </a>
 
               <a
                 href="https://dev.to/ferisigitpratama11"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-12 w-12 items-center justify-center rounded-xl border border-slate-700 text-xl transition duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:text-cyan-400"
+                className="group flex items-center gap-3 rounded-xl border border-slate-700 bg-slate-900/40 px-5 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400"
               >
-                <FaDev />
+
+                <FaDev className="text-xl text-white transition group-hover:text-cyan-400" />
+
+                <span className="text-sm font-medium">
+
+                  Dev Community
+
+                </span>
+
               </a>
 
             </div>
 
           </div>
 
-          {/* ========================= */}
+          {/* ================================ */}
           {/* RIGHT CONTENT */}
-          {/* ========================= */}
+          {/* ================================ */}
 
-          <div className="relative flex justify-center">
+<div className="flex justify-center">
 
-            {/* Glow */}
+    <LanyardCard />
 
-            <div className="absolute h-[500px] w-[500px] rounded-full bg-cyan-500/15 blur-[120px]"></div>
+</div>
+/   </div>
 
-            <div className="relative">
 
-              <img
-                src={profile}
-                alt="Feri Sigit Pratama"
-                className="w-[420px] rounded-[32px] border border-slate-700 object-cover shadow-2xl shadow-cyan-500/10 transition duration-500 hover:scale-[1.02]"
-              />
+        {/* ====================================== */}
+        {/* STATS */}
+        {/* ====================================== */}
 
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* PART 3 DIMULAI DARI SINI */}
-
-                <div className="mt-16 grid grid-cols-2 gap-6 rounded-3xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur lg:grid-cols-4">
+        <div className="mt-24 grid gap-8 rounded-3xl border border-slate-800 bg-slate-900/50 p-8 backdrop-blur md:grid-cols-2 lg:grid-cols-4">
 
           {stats.map((item) => (
 
@@ -196,12 +257,16 @@ function Hero() {
               className="text-center"
             >
 
-              <h2 className="text-4xl font-black text-cyan-400">
+              <h2 className="text-5xl font-black text-cyan-400">
+
                 {item.number}
+
               </h2>
 
-              <p className="mt-2 text-sm text-slate-400">
+              <p className="mt-3 text-slate-400">
+
                 {item.label}
+
               </p>
 
             </div>
@@ -211,8 +276,7 @@ function Hero() {
         </div>
 
       </Container>
-
-    </section>
+      </section>
   );
 }
 
