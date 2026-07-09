@@ -1,70 +1,115 @@
 import {
+  FaEnvelope,
   FaGithub,
   FaLinkedin,
-  FaEnvelope,
+  FaWhatsapp,
+  FaDiscord,
+  FaDev,
 } from "react-icons/fa";
 
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
 
+const contacts = [
+  {
+    title: "Email",
+    value: "ferisigitpratama@gmail.com",
+    icon: <FaEnvelope />,
+    link: "mailto:ferisigitpratama@gmail.com",
+  },
+  {
+    title: "WhatsApp",
+    value: "+62 858-3238-6979",
+    icon: <FaWhatsapp />,
+    link: "https://wa.me/6285832386979",
+  },
+  {
+    title: "LinkedIn",
+    value: "linkedin.com/in/ferisigitpratama11",
+    icon: <FaLinkedin />,
+    link: "https://linkedin.com/in/ferisigitpratama11",
+  },
+  {
+    title: "GitHub",
+    value: "github.com/ferisigitpratama",
+    icon: <FaGithub />,
+    link: "https://github.com/ferisigitpratama",
+  },
+  {
+    title: "Dev Community",
+    value: "dev.to/ferisigitpratama11",
+    icon: <FaDev />,
+    link: "https://dev.to/ferisigitpratama11",
+  },
+  {
+    title: "Discord",
+    value: "musaparadisiaca6068",
+    icon: <FaDiscord />,
+    link: "https://discord.com/users/musaparadisiaca6068",
+  },
+];
+
 function Contact() {
   return (
     <section
       id="contact"
-      className="bg-slate-900 py-32"
+      className="bg-slate-900 py-28"
     >
       <Container>
+
         <SectionTitle
           subtitle="Get In Touch"
           title="Let's Connect"
         />
 
-        <div className="mx-auto max-w-3xl text-center">
+        <p className="mx-auto mt-6 max-w-2xl text-center leading-8 text-slate-400">
+          I'm always interested in discussing networking, enterprise
+          infrastructure, cloud technologies, and collaboration
+          opportunities. Feel free to reach out through any of the
+          platforms below.
+        </p>
 
-          <p className="text-lg leading-8 text-slate-400">
-            I'm always interested in discussing networking,
-            infrastructure, and enterprise solutions.
-            Feel free to reach out through any platform below.
-          </p>
+        <div className="mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-          <div className="mt-12 flex justify-center gap-6">
-
-            <a
-              href="mailto:ferisigitpratama@gmail.com"
-              className="flex h-14 w-14 items-center justify-center rounded-full border border-slate-700 text-2xl transition hover:border-cyan-400 hover:text-cyan-400"
-            >
-              <FaEnvelope />
-            </a>
+          {contacts.map((item) => (
 
             <a
-              href="https://github.com/ferisigitpratama"
+              key={item.title}
+              href={item.link}
               target="_blank"
               rel="noreferrer"
-              className="flex h-14 w-14 items-center justify-center rounded-full border border-slate-700 text-2xl transition hover:border-cyan-400 hover:text-cyan-400"
+              className="group rounded-2xl border border-slate-700 bg-slate-950 p-6 transition duration-300 hover:-translate-y-2 hover:border-cyan-400"
             >
-              <FaGithub />
+
+              <div className="text-4xl text-cyan-400">
+                {item.icon}
+              </div>
+
+              <h3 className="mt-5 text-xl font-semibold text-white">
+                {item.title}
+              </h3>
+
+              <p className="mt-2 break-all text-slate-400 group-hover:text-slate-300">
+                {item.value}
+              </p>
+
             </a>
 
-            <a
-              href="https://linkedin.com/in/ferisigitpratama11"
-              target="_blank"
-              rel="noreferrer"
-              className="flex h-14 w-14 items-center justify-center rounded-full border border-slate-700 text-2xl transition hover:border-cyan-400 hover:text-cyan-400"
-            >
-              <FaLinkedin />
-            </a>
-            <div className="mt-10">
-  <a
-    href="mailto:ferisigitpratama@gmail.com"
-    className="rounded-xl bg-cyan-500 px-8 py-4 font-semibold text-white transition hover:bg-cyan-400"
-  >
-    Let's Talk
-  </a>
-</div>
-
-          </div>
+          ))}
 
         </div>
+
+        <div className="mt-16 text-center">
+
+          <a
+            href="mailto:ferisigitpratama@gmail.com"
+            className="inline-flex rounded-xl bg-cyan-500 px-8 py-4 font-semibold text-slate-950 transition hover:bg-cyan-400"
+          >
+            Let's Talk
+          </a>
+
+        </div>
+
       </Container>
     </section>
   );
