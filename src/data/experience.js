@@ -2,7 +2,7 @@ const experience = [
   {
     id: 1,
     year: "2025 – Present",
-    position: "Leader Customer Experience",
+    position: "Service Desk Lead",
     company: "PT Indonesia Trans Network",
     location: "Bandar Lampung, Indonesia",
     description:
