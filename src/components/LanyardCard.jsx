@@ -22,7 +22,7 @@ function LanyardCard() {
             [writing-mode:vertical-rl]
           "
         >
-          NETWORK ENGINEER
+          
         </div>
 
       </div>
@@ -105,7 +105,7 @@ function LanyardCard() {
 
               <p className="text-white">
 
-                3+ Years
+                4+ Years
 
               </p>
 
@@ -121,7 +121,7 @@ function LanyardCard() {
 
               <p className="text-white">
 
-                4+
+                5+
 
               </p>
 

@@ -2,6 +2,7 @@ import bonding from "../assets/images/projects/bonding.png";
 import ixp from "../assets/images/projects/ixp.png";
 import pppoe from "../assets/images/projects/pppoe.jpg";
 import qinq from "../assets/images/projects/qinq.png";
+import notify from "../assets/images/projects/notify.png";
 
 const projects = [
   {
@@ -100,6 +101,30 @@ const projects = [
     article:
       "https://dev.to/ferisigitpratama11/building-redundant-b2b-connectivity-with-mikrotik-bonding-balance-rr-over-dual-metro-ethernet-15f4",
   },
+
+    {
+    id: 5,
+    title: "Notify",
+    category: "MONITORING",
+
+    image: notify,
+
+    description:
+      "A simple notification system that sends alerts to users via email or messaging platforms when certain events occur in a system or application.",
+
+    tech: [
+      "Laravel",
+      "PHP",
+      "JavaScript",
+      "Tailwind CSS",
+    ],
+
+    github:
+      "https://github.com/ferisigitpratama/Netify.git",
+
+    article:"https://github.com/ferisigitpratama/Netify.git",
+  },
+
 ];
 
 export default projects;

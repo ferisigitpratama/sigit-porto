@@ -49,7 +49,7 @@ function About() {
             <div className="rounded-2xl border border-slate-800 bg-slate-950 p-8">
 
               <h3 className="text-5xl font-bold text-cyan-400">
-                3+
+                4+
               </h3>
 
               <p className="mt-3 text-slate-400">

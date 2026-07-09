@@ -20,12 +20,12 @@ function Hero() {
 
   const stats = [
     {
-      number: "3+",
+      number: "4+",
       label: "Years Experience",
     },
     {
-      number: "4",
-      label: "Networking Projects",
+      number: "5",
+      label: "Projects",
     },
     {
       number: "20+",
@@ -75,7 +75,7 @@ function Hero() {
 
               <span className="text-xs font-semibold uppercase tracking-[4px] text-cyan-400">
 
-                NETWORK ENGINEER
+                NETWORK OPERATIONS CENTER
 
               </span>
 
@@ -83,7 +83,7 @@ function Hero() {
 
             <p className="mt-5 text-sm uppercase tracking-[3px] text-slate-500">
 
-              Infrastructure • Linux • Enterprise Networking
+              Information Technology Enthusiast
 
             </p>
 
@@ -114,12 +114,13 @@ function Hero() {
                 sequence={[
                   "Network Operations Center",
                   2000,
+
                   "Network Engineer",
                   2000,
-                  "Infrastructure Enthusiast",
+
+                  "Information Technology Enthusiast",
                   2000,
-                  "Linux System Administrator",
-                  2000,
+
                 ]}
                 speed={45}
                 repeat={Infinity}
