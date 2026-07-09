@@ -13,8 +13,8 @@ import {
 
 import Button from "../components/Button";
 import Container from "../components/Container";
-import LanyardCard from "../components/LanyardCard";
-import profile from "../assets/images/profile.png";
+import profile from "../assets/images/profile.jpg";
+import TiltedCard from "../components/TiltedCard";
 
 function Hero() {
 
@@ -237,13 +237,68 @@ function Hero() {
           {/* RIGHT CONTENT */}
           {/* ================================ */}
 
-<div className="flex justify-center">
+<div className="relative flex items-center justify-center">
 
-    <LanyardCard />
+  <div
+className="
+absolute
+
+h-[700px]
+w-[700px]
+
+rounded-full
+
+bg-cyan-500/10
+
+blur-[220px]
+"
+/>
+
+  <div
+    className="
+      absolute
+      h-[650px]
+      w-[650px]
+      rounded-full
+      bg-cyan-500/10
+      blur-[180px]
+    "
+  />
+
+  <div
+    className="
+      w-full
+      max-w-[430px]
+    "
+  >
+
+    <TiltedCard
+      imageSrc={profile}
+      altText="Feri Sigit Pratama"
+
+      containerHeight="620px"
+      containerWidth="100%"
+
+      imageHeight="620px"
+      imageWidth="100%"
+
+      rotateAmplitude={10}
+
+      scaleOnHover={1.03}
+
+      showTooltip={false}
+
+      showMobileWarning={false}
+
+      displayOverlayContent={false}
+
+    />
+
+  </div>
 
 </div>
-/   </div>
 
+</div>
 
         {/* ====================================== */}
         {/* STATS */}

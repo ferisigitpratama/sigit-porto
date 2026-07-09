@@ -1,47 +1,69 @@
+import {
+  Router,
+  Server,
+  Monitor,
+  Activity,
+} from "lucide-react";
+
 const skills = [
   {
-    category: "Routing & Switching",
+    id: 1,
+    title: "Routing & Switching",
+    subtitle: "Enterprise Routing Protocols",
+    icon: Router,
     items: [
       "BGP",
       "OSPF",
       "MPLS",
-      "VLAN",
-      "QinQ",
+      "VPLS",
       "EVPN",
       "VXLAN",
       "VRRP",
+      "QinQ",
+      "VLAN",
+      "EtherChannel",
     ],
   },
+
   {
-    category: "Network Platforms",
+    id: 2,
+    title: "Network Platforms",
+    subtitle: "Network Operating Systems & Vendors",
+    icon: Server,
     items: [
       "Cisco",
       "Huawei",
       "Aruba",
       "MikroTik",
-      "FRRouting",
-      "BIRD",
+      "Juniper",
     ],
   },
+
   {
-    category: "Virtualization",
+    id: 3,
+    title: "Linux & Virtualization",
+    subtitle: "Infrastructure Technologies",
+    icon: Activity,
     items: [
-      "Proxmox",
-      "Docker",
       "Linux",
+      "Docker",
+      "Proxmox",
       "VMware",
       "KVM",
     ],
   },
+
   {
-    category: "Monitoring & Operations",
+    id: 4,
+    title: "Monitoring & Operations",
+    subtitle: "Monitoring, Troubleshooting & NOC",
+    icon: Monitor,
     items: [
       "Zabbix",
       "LibreNMS",
-      "Wireshark",
       "Grafana",
-      "Incident Management",
-      "SLA",
+      "PRTG",
+      "The Dude",
     ],
   },
 ];

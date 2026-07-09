@@ -53,7 +53,7 @@ function Navbar() {
       <Container>
         <div className="flex h-20 items-center justify-between">
           <h1 className="text-xl font-bold tracking-wider">
-            FERI SIGIT
+            FERI SIGIT PRATAMA
           </h1>
 
           <nav className="hidden md:flex gap-8">
