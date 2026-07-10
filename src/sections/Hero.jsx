@@ -239,39 +239,10 @@ function Hero() {
 
 <div className="relative flex items-center justify-center">
 
-  <div
-className="
-absolute
+  <div className="absolute h-[650px] w-[650px] rounded-full bg-cyan-500/10 blur-[180px]" />
 
-h-[700px]
-w-[700px]
-
-rounded-full
-
-bg-cyan-500/10
-
-blur-[220px]
-"
-/>
-
-  <div
-    className="
-      absolute
-      h-[650px]
-      w-[650px]
-      rounded-full
-      bg-cyan-500/10
-      blur-[180px]
-    "
-  />
-
-  <div
-    className="
-      w-full
-      max-w-[430px]
-    "
-  >
-
+  <div className="w-full max-w-[430px] -translate-y-16">
+    <floating>
     <TiltedCard
       imageSrc={profile}
       altText="Feri Sigit Pratama"
@@ -293,6 +264,7 @@ blur-[220px]
       displayOverlayContent={false}
 
     />
+    </floating>
 
   </div>
 

@@ -1,14 +1,26 @@
 import Container from "../components/Container";
 import SectionTitle from "../components/SectionTitle";
+import { motion } from "motion/react";
+import { fadeUp } from "../animations/fadeUp";
 
 import skills from "../data/skills";
 
+
 function Skills() {
   return (
-    <section
-      id="skills"
-      className="bg-slate-950 py-28"
-    >
+
+<motion.section
+  id="skills"
+  className="bg-slate-950 py-28"
+  variants={fadeUp}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{
+    once: true,
+    amount: 0.2,
+  }}
+>
+        
       <Container>
 
         <SectionTitle
@@ -24,8 +36,9 @@ function Skills() {
 
             return (
 
-              <div
+              <motion.div
                 key={category.id}
+                variants={fadeUp}
                 className="
                   group
                   rounded-3xl
@@ -143,7 +156,7 @@ function Skills() {
 
                 </div>
 
-              </div>
+              </motion.div>
 
             );
 
@@ -151,9 +164,11 @@ function Skills() {
 
         </div>
 
-      </Container>
 
-    </section>
+      </Container>
+    
+
+    </motion.section>
   );
 }
 

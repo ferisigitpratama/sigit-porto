@@ -27,7 +27,7 @@ function About() {
             </h3>
 
             <p className="mb-6 leading-8 text-slate-400">
-              IT professional with more than three years of experience
+              IT professional with more than four years of experience
               in Network Engineering and Network Operations.
               Experienced in designing, operating, and maintaining
               enterprise network infrastructure while ensuring
