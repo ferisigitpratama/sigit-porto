@@ -5,6 +5,7 @@ import {
   FaWhatsapp,
   FaDiscord,
   FaDev,
+  FaInstagram,
 } from "react-icons/fa";
 
 import Container from "../components/Container";
@@ -16,12 +17,6 @@ const contacts = [
     value: "ferisigitpratama@gmail.com",
     icon: <FaEnvelope />,
     link: "mailto:ferisigitpratama@gmail.com",
-  },
-  {
-    title: "WhatsApp",
-    value: "+62 858-3238-6979",
-    icon: <FaWhatsapp />,
-    link: "https://wa.me/6285832386979",
   },
   {
     title: "LinkedIn",
@@ -46,6 +41,13 @@ const contacts = [
     value: "musaparadisiaca6068",
     icon: <FaDiscord />,
     link: "https://discord.com/users/musaparadisiaca6068",
+  },
+
+   {
+    title: "Instagram",
+    value: "musaparadisiaca6068",
+    icon: <FaInstagram />,
+    link: "https://instagram.com/musaparadisiacaa_",
   },
 ];
 
