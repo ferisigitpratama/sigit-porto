@@ -1,17 +1,11 @@
-import {
-  Router,
-  Server,
-  Monitor,
-  Activity,
-} from "lucide-react";
-
 const skills = [
   {
     id: 1,
     title: "Routing & Switching",
     subtitle: "Enterprise Routing Protocols",
-    icon: Router,
-    items: [
+    icon: "network",
+
+    skills: [
       "BGP",
       "OSPF",
       "MPLS",
@@ -29,13 +23,17 @@ const skills = [
     id: 2,
     title: "Network Platforms",
     subtitle: "Network Operating Systems & Vendors",
-    icon: Server,
-    items: [
+    icon: "server",
+
+    skills: [
       "Cisco",
       "Huawei",
       "Aruba",
       "MikroTik",
       "Juniper",
+      "ZTE",
+      "Ubiquiti",
+      "Dell",
     ],
   },
 
@@ -43,13 +41,13 @@ const skills = [
     id: 3,
     title: "Linux & Virtualization",
     subtitle: "Infrastructure Technologies",
-    icon: Activity,
-    items: [
+    icon: "linux",
+
+    skills: [
       "Linux",
       "Docker",
       "Proxmox",
       "VMware",
-      "KVM",
     ],
   },
 
@@ -57,8 +55,9 @@ const skills = [
     id: 4,
     title: "Monitoring & Operations",
     subtitle: "Monitoring, Troubleshooting & NOC",
-    icon: Monitor,
-    items: [
+    icon: "monitor",
+
+    skills: [
       "Zabbix",
       "LibreNMS",
       "Grafana",

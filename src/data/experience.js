@@ -51,11 +51,14 @@ const experiences = [
           "BGP",
           "OSPF",
           "MPLS",
-          "Routing",
-          "Switching",
+          "EVPN",
+          "VXLAN",
+          "EtherChannel",
+          "VPLS",
+          "VRRP",
           "Network Monitoring",
           "Incident Management",
-          "Linux",
+          "Cloud Computing",
         ],
       },
     ],
@@ -68,7 +71,7 @@ const experiences = [
 
     roles: [
       {
-        title: "Network Engineer",
+        title: "Network Operations Engineer",
         type: "Full-time",
         period: "Jun 2022 - Jul 2023",
 
@@ -137,7 +140,7 @@ const experiences = [
 
     roles: [
       {
-        title: "Network Engineer",
+        title: "Networ Engineer",
         type: "Internship",
         period: "Jul 2018 - Aug 2018",
 
