@@ -8,7 +8,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="bg-slate-950 py-32"
+      className="bg-slate-950 py-24"
     >
       <Container>
         <SectionTitle
@@ -16,7 +16,7 @@ function Projects() {
           title="Featured Projects"
         />
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard
               key={project.id}

@@ -36,6 +36,11 @@ function Navbar() {
       name: "Projects",
       to: "projects",
     },
+
+    {
+      name: "Certifications",
+      to: "certifications",
+    },
     {
       name: "Contact",
       to: "contact",

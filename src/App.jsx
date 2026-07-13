@@ -8,6 +8,7 @@ import Projects from "./sections/Projects";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
 import Education from "./sections/Education";
+import Certifications from "./sections/Certifications";
 
 function App() {
   return (
@@ -19,12 +20,14 @@ function App() {
       <About />
 
       <Experience />
-      
+
       <Education />
 
       <Skills />
 
       <Projects />
+
+      <Certifications />
 
       <Contact />
 

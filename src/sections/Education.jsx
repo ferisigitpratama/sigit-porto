@@ -1,45 +1,226 @@
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
-
-import {
-  FiChevronDown,
-  FiChevronUp,
-  FiExternalLink,
-  FiAward,
-} from "react-icons/fi";
-
+import { motion, AnimatePresence } from "motion/react";
 import Container from "../components/Container";
-import education from "../data/education";
+
+const educationData = [
+  {
+    id: 1,
+    institution: "Universitas Teknokrat Indonesia",
+    location: "Bandar Lampung, Indonesia",
+    period: "2018 - 2022",
+    degree: "Bachelor of Information Technology",
+    description:
+      "Focused on computer networking, network infrastructure, information technology, and practical implementation of enterprise network technologies.",
+    skills: [
+      "Computer Networking",
+      "Network Infrastructure",
+      "Routing",
+      "Switching",
+      "Linux",
+      "MikroTik",
+    ],
+  },
+];
+
+const organizationJourney = [
+  {
+    id: 1,
+    year: "2018",
+    title: "Member",
+    organization: "UKM PROTEK",
+    subtitle: "Programming Teknokrat",
+    description:
+      "Started my organizational journey as a member of UKM PROTEK and actively participated in technology and computer networking activities.",
+  },
+  {
+    id: 2,
+    year: "2019",
+    title: "MikroTik Division Tutor",
+    organization: "UKM PROTEK",
+    subtitle: "Programming Teknokrat",
+    description:
+      "Mentored members in MikroTik and computer networking fundamentals, including routing, switching, and practical network configuration.",
+  },
+  {
+    id: 3,
+    year: "2021 - 2022",
+    title: "Chairman & MikroTik Tutor",
+    organization: "UKM PROTEK",
+    subtitle: "Programming Teknokrat",
+    description:
+      "Led UKM PROTEK while continuing to mentor members in the MikroTik division, coordinating organizational activities and supporting member development.",
+  },
+];
+
+const activities = [
+  {
+    id: 1,
+    year: "2020",
+    title: "Leadership Education Program 2020",
+    role: "Participant",
+    description:
+      "Participated in the Leadership Education Program focused on leadership development, organizational management, and human resource management.",
+  },
+  {
+    id: 2,
+    year: "2021",
+    title: "Teknologi Euphoria Universitas Sriwijaya",
+    role: "National Networking Competition",
+    achievement: "5th Place",
+    description:
+      "Represented Universitas Teknokrat Indonesia in a national-level computer networking competition and finished in 5th place.",
+  },
+  {
+    id: 3,
+    year: "2022",
+    title: "GEMATIK 2022",
+    role: "Network Security Competition",
+    achievement: "1st Place",
+    description:
+      "Participated in the network security competition at GEMATIK 2022 and achieved 1st place.",
+  },
+  {
+    id: 4,
+    year: "2022",
+    title: "FTIK EXPO 2022",
+    role: "Event Committee",
+    description:
+      "Served as an event committee member and monitored UKM PROTEK members participating in competitions during FTIK EXPO 2022.",
+  },
+];
+
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
 
 function Education() {
-  const [expandedEducation, setExpandedEducation] = useState(null);
-
-  const toggleEducation = (id) => {
-    setExpandedEducation((currentId) =>
-      currentId === id ? null : id
-    );
-  };
+  const [showJourney, setShowJourney] = useState(false);
 
   return (
     <section
       id="education"
-      className="relative overflow-hidden bg-slate-900 py-32"
+      className="relative overflow-hidden bg-slate-950 py-24"
     >
-      {/* BACKGROUND */}
-
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-0 top-1/3 h-[400px] w-[400px] rounded-full bg-cyan-500/5 blur-[150px]" />
-
-        <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-sky-500/5 blur-[170px]" />
-      </div>
-
       <Container>
-        {/* SECTION HEADER */}
+        {/* HEADER */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.3,
+          }}
+          transition={{
+            duration: 0.7,
+            ease: "easeOut",
+          }}
+          className="mb-16 text-center"
+        >
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.4em] text-cyan-400">
+            Academic Background
+          </p>
 
+          <h2 className="text-4xl font-bold text-white md:text-6xl">
+            Education
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-slate-400 md:text-lg">
+            Academic background, organizational leadership, and technical
+            competition journey that contributed to my professional
+            development.
+          </p>
+        </motion.div>
+
+        {/* EDUCATION */}
+        <div className="space-y-8">
+          {educationData.map((education, index) => (
+            <motion.div
+              key={education.id}
+              initial={{
+                opacity: 0,
+                y: 60,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: true,
+                amount: 0.2,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
+              className="rounded-[28px] border border-slate-800 bg-slate-900/30 p-8 md:p-12"
+            >
+              {/* UNIVERSITY HEADER */}
+              <div className="flex flex-col gap-6 border-b border-slate-800 pb-10 md:flex-row md:items-start md:justify-between">
+                <div>
+                  <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-cyan-400">
+                    University
+                  </p>
+
+                  <h3 className="text-3xl font-bold text-white md:text-4xl">
+                    {education.institution}
+                  </h3>
+
+                  <p className="mt-3 text-slate-500">
+                    {education.location}
+                  </p>
+                </div>
+
+                <span className="w-fit rounded-full border border-slate-700 px-6 py-3 text-xs font-semibold tracking-[0.25em] text-slate-300">
+                  {education.period}
+                </span>
+              </div>
+
+              {/* DEGREE */}
+              <div className="pt-10">
+                <h4 className="text-2xl font-bold text-white md:text-3xl">
+                  {education.degree}
+                </h4>
+
+                <p className="mt-5 max-w-5xl text-base leading-8 text-slate-400">
+                  {education.description}
+                </p>
+
+                {/* SKILLS */}
+                <div className="mt-10">
+                  <p className="mb-5 text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
+                    Skills & Technologies
+                  </p>
+
+                  <div className="flex flex-wrap gap-3">
+                    {education.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-full border border-slate-700 px-5 py-2 text-sm text-slate-300 transition duration-300 hover:border-cyan-500 hover:text-cyan-400"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* VIEW JOURNEY BUTTON */}
         <motion.div
           initial={{
             opacity: 0,
-            y: 50,
+            y: 30,
           }}
           whileInView={{
             opacity: 1,
@@ -47,452 +228,191 @@ function Education() {
           }}
           viewport={{
             once: true,
-            amount: 0.3,
           }}
           transition={{
-            duration: 0.7,
+            duration: 0.6,
           }}
-          className="relative z-10 text-center"
+          className="mt-12 flex justify-center"
         >
-          <p className="text-sm font-semibold uppercase tracking-[6px] text-cyan-400">
-            Academic Background
-          </p>
+          <button
+            type="button"
+            onClick={() => setShowJourney((current) => !current)}
+            className="group flex items-center gap-3 rounded-full border border-cyan-500/40 bg-cyan-500/5 px-7 py-3 text-sm font-semibold text-cyan-400 transition duration-300 hover:border-cyan-400 hover:bg-cyan-500/10"
+          >
+            {showJourney
+              ? "Hide Organization Journey"
+              : "View Organization Journey"}
 
-          <h2 className="mt-5 text-4xl font-black text-white md:text-6xl">
-            Education
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-400 md:text-lg">
-            Academic background, organizational leadership, and technical
-            competition journey that contributed to my professional
-            development.
-          </p>
+            <span
+              className={`text-lg transition duration-300 ${
+                showJourney ? "rotate-180" : ""
+              }`}
+            >
+              ↓
+            </span>
+          </button>
         </motion.div>
 
-        {/* EDUCATION LIST */}
+        {/* ORGANIZATION JOURNEY */}
+        <AnimatePresence>
+          {showJourney && (
+            <motion.div
+              initial={{
+                opacity: 0,
+                height: 0,
+              }}
+              animate={{
+                opacity: 1,
+                height: "auto",
+              }}
+              exit={{
+                opacity: 0,
+                height: 0,
+              }}
+              transition={{
+                duration: 0.6,
+                ease: "easeInOut",
+              }}
+              className="overflow-hidden"
+            >
+              <div className="pt-24">
+                {/* ORGANIZATION HEADER */}
+                <div className="mb-14 text-center">
+                  <p className="mb-4 text-sm font-semibold uppercase tracking-[0.4em] text-cyan-400">
+                    Leadership Journey
+                  </p>
 
-        <div className="relative z-10 mt-20 space-y-16">
-          {education.map((item, educationIndex) => {
-            const isExpanded = expandedEducation === item.id;
+                  <h3 className="text-3xl font-bold text-white md:text-5xl">
+                    Organization Experience
+                  </h3>
 
-            return (
-              <motion.div
-                key={item.id}
-                initial={{
-                  opacity: 0,
-                  y: 70,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.15,
-                }}
-                transition={{
-                  duration: 0.7,
-                  delay: educationIndex * 0.1,
-                }}
-                className="rounded-[32px] border border-slate-800 bg-slate-950/50 p-6 backdrop-blur md:p-10 lg:p-12"
-              >
-                {/* EDUCATION HEADER */}
-
-                <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-[5px] text-cyan-400">
-                      University
-                    </p>
-
-                    <h3 className="mt-5 text-3xl font-black text-white md:text-4xl">
-                      {item.institution}
-                    </h3>
-
-                    <p className="mt-3 text-slate-500">
-                      {item.location}
-                    </p>
-                  </div>
-
-                  <span className="w-fit shrink-0 rounded-full border border-slate-700 bg-slate-950/60 px-6 py-3 text-xs font-bold uppercase tracking-[3px] text-slate-300">
-                    {item.period}
-                  </span>
-                </div>
-
-                {/* DEGREE */}
-
-                <div className="mt-12 border-t border-slate-800 pt-10">
-                  <h4 className="text-2xl font-black text-white md:text-3xl">
-                    {item.degree}
-                  </h4>
-
-                  <p className="mt-5 max-w-4xl text-sm leading-8 text-slate-400 md:text-base">
-                    {item.description}
+                  <p className="mx-auto mt-5 max-w-2xl leading-8 text-slate-400">
+                    My organizational journey from member to chairman while
+                    continuing to contribute as a technical tutor.
                   </p>
                 </div>
 
-                {/* EDUCATION SKILLS */}
+                {/* ORGANIZATION TIMELINE */}
+                <div className="relative">
+                  <div className="absolute bottom-0 left-[10px] top-0 w-px bg-slate-800 md:left-[14px]" />
 
-                {item.skills && item.skills.length > 0 && (
-                  <div className="mt-10">
-                    <p className="text-xs font-semibold uppercase tracking-[4px] text-slate-500">
-                      Skills & Technologies
-                    </p>
+                  <div className="space-y-6">
+                    {organizationJourney.map((journey, index) => (
+                      <motion.div
+                        key={journey.id}
+                        initial={{
+                          opacity: 0,
+                          x: -40,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          x: 0,
+                        }}
+                        transition={{
+                          duration: 0.5,
+                          delay: index * 0.12,
+                        }}
+                        className="relative pl-10 md:pl-14"
+                      >
+                        <div className="absolute left-0 top-8 flex h-5 w-5 items-center justify-center rounded-full border border-cyan-500 bg-slate-950 md:h-7 md:w-7">
+                          <div className="h-2 w-2 rounded-full bg-cyan-400" />
+                        </div>
 
-                    <div className="mt-5 flex flex-wrap gap-3">
-                      {item.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2 text-xs text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:text-cyan-400"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* VIEW JOURNEY */}
-
-                <div className="mt-10 border-t border-slate-800 pt-8">
-                  <button
-                    type="button"
-                    onClick={() => toggleEducation(item.id)}
-                    className="flex items-center gap-3 rounded-xl border border-cyan-500/30 bg-cyan-500/5 px-6 py-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:bg-cyan-500/10"
-                  >
-                    {isExpanded
-                      ? "View Less"
-                      : "View Campus Journey"}
-
-                    {isExpanded ? (
-                      <FiChevronUp size={18} />
-                    ) : (
-                      <FiChevronDown size={18} />
-                    )}
-                  </button>
-                </div>
-
-                {/* EXPANDED JOURNEY */}
-
-                <AnimatePresence>
-                  {isExpanded && (
-                    <motion.div
-                      key={`journey-${item.id}`}
-                      initial={{
-                        opacity: 0,
-                        y: 40,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      exit={{
-                        opacity: 0,
-                        y: 20,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        ease: "easeOut",
-                      }}
-                    >
-                      {/* ORGANIZATION */}
-
-                      {item.organization && (
-                        <div className="mt-12 border-t border-slate-800 pt-12">
-                          <p className="text-xs font-semibold uppercase tracking-[5px] text-cyan-400">
-                            Organizational Journey
-                          </p>
-
-                          <div className="mt-8 flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+                        <div className="rounded-2xl border border-slate-800 bg-slate-900/30 p-7 transition duration-300 hover:border-cyan-500/50 md:p-8">
+                          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
                             <div>
-                              <h3 className="text-2xl font-black text-white md:text-3xl">
-                                {item.organization.name}
-                              </h3>
+                              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-400">
+                                {journey.organization}
+                              </p>
 
-                              {item.organization.fullName && (
-                                <p className="mt-2 font-semibold text-cyan-400">
-                                  {item.organization.fullName}
-                                </p>
-                              )}
+                              <h4 className="mt-3 text-2xl font-bold text-white">
+                                {journey.title}
+                              </h4>
 
-                              <p className="mt-5 max-w-3xl leading-8 text-slate-400">
-                                {item.organization.description}
+                              <p className="mt-2 text-sm text-slate-500">
+                                {journey.subtitle}
                               </p>
                             </div>
 
-                            <span className="w-fit shrink-0 rounded-full border border-slate-700 bg-slate-950/60 px-5 py-3 text-xs font-bold uppercase tracking-[3px] text-slate-300">
-                              {item.organization.period}
+                            <span className="w-fit rounded-full border border-cyan-500/30 px-5 py-2 text-xs font-semibold tracking-[0.2em] text-cyan-400">
+                              {journey.year}
                             </span>
                           </div>
 
-                          {/* ORGANIZATION TIMELINE */}
-
-                          <div className="relative mt-12 pl-10 md:pl-14">
-                            <div className="absolute bottom-5 left-[7px] top-5 w-px bg-gradient-to-b from-cyan-400 via-slate-700 to-transparent" />
-
-                            <div className="space-y-8">
-                              {item.organization.roles.map(
-                                (role, roleIndex) => (
-                                  <motion.div
-                                    key={role.id}
-                                    initial={{
-                                      opacity: 0,
-                                      x: 40,
-                                    }}
-                                    whileInView={{
-                                      opacity: 1,
-                                      x: 0,
-                                    }}
-                                    viewport={{
-                                      once: true,
-                                      amount: 0.1,
-                                    }}
-                                    transition={{
-                                      duration: 0.5,
-                                      delay: roleIndex * 0.1,
-                                    }}
-                                    className="relative"
-                                  >
-                                    {/* TIMELINE DOT */}
-
-                                    <div className="absolute -left-10 top-7 flex h-4 w-4 items-center justify-center rounded-full border-2 border-cyan-500 bg-slate-950 md:-left-14">
-                                      <div className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
-                                    </div>
-
-                                    {/* ROLE CARD */}
-
-                                    <div className="rounded-3xl border border-slate-800 bg-slate-950/40 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 md:p-8">
-                                      <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
-                                        <h4 className="text-xl font-black text-white md:text-2xl">
-                                          {role.title}
-                                        </h4>
-
-                                        <span className="w-fit rounded-full border border-cyan-500/20 bg-cyan-500/5 px-5 py-2 text-xs font-bold uppercase tracking-[3px] text-cyan-400">
-                                          {role.period}
-                                        </span>
-                                      </div>
-
-                                      {/* ROLE DESCRIPTION */}
-
-                                      <div className="mt-8">
-                                        <p className="text-xs font-semibold uppercase tracking-[4px] text-slate-500">
-                                          Role Description
-                                        </p>
-
-                                        <ul className="mt-5 space-y-4">
-                                          {role.description.map(
-                                            (description, index) => (
-                                              <li
-                                                key={index}
-                                                className="flex items-start gap-4"
-                                              >
-                                                <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-cyan-400" />
-
-                                                <span className="text-sm leading-7 text-slate-400 md:text-base md:leading-8">
-                                                  {description}
-                                                </span>
-                                              </li>
-                                            )
-                                          )}
-                                        </ul>
-                                      </div>
-
-                                      {/* ROLE SKILLS */}
-
-                                      {role.skills &&
-                                        role.skills.length > 0 && (
-                                          <div className="mt-8 border-t border-slate-800 pt-7">
-                                            <p className="text-xs font-semibold uppercase tracking-[4px] text-slate-500">
-                                              Skills & Technologies
-                                            </p>
-
-                                            <div className="mt-5 flex flex-wrap gap-3">
-                                              {role.skills.map(
-                                                (skill) => (
-                                                  <span
-                                                    key={skill}
-                                                    className="rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2 text-xs text-slate-300 transition-all duration-300 hover:border-cyan-400 hover:text-cyan-400"
-                                                  >
-                                                    {skill}
-                                                  </span>
-                                                )
-                                              )}
-                                            </div>
-                                          </div>
-                                        )}
-                                    </div>
-                                  </motion.div>
-                                )
-                              )}
-                            </div>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* CAMPUS ACTIVITIES */}
-
-                      {item.events && item.events.length > 0 && (
-                        <div className="mt-16 border-t border-slate-800 pt-12">
-                          <p className="text-xs font-semibold uppercase tracking-[5px] text-cyan-400">
-                            Campus Activities & Achievements
+                          <p className="mt-6 max-w-4xl leading-8 text-slate-400">
+                            {journey.description}
                           </p>
-
-                          <h3 className="mt-4 text-2xl font-black text-white md:text-3xl">
-                            Leadership, Competition & Event Experience
-                          </h3>
-
-                          <p className="mt-5 max-w-3xl leading-8 text-slate-400">
-                            A collection of leadership programs, national
-                            technology competitions, and campus activities
-                            that strengthened my technical and organizational
-                            experience.
-                          </p>
-
-                          {/* EVENTS */}
-
-                          <div className="mt-10 space-y-8">
-                            {item.events.map(
-                              (event, eventIndex) => (
-                                <motion.div
-                                  key={event.id}
-                                  initial={{
-                                    opacity: 0,
-                                    y: 50,
-                                  }}
-                                  whileInView={{
-                                    opacity: 1,
-                                    y: 0,
-                                  }}
-                                  viewport={{
-                                    once: true,
-                                    amount: 0.1,
-                                  }}
-                                  transition={{
-                                    duration: 0.6,
-                                    delay: eventIndex * 0.1,
-                                  }}
-                                  className="group rounded-3xl border border-slate-800 bg-slate-950/40 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-cyan-500/30 md:p-8 lg:p-10"
-                                >
-                                  {/* EVENT HEADER */}
-
-                                  <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                                    <div>
-                                      <h4 className="text-xl font-black text-white transition-colors duration-300 group-hover:text-cyan-400 md:text-2xl">
-                                        {event.title}
-                                      </h4>
-
-                                      <p className="mt-3 text-sm font-semibold text-cyan-400">
-                                        {event.role}
-                                      </p>
-                                    </div>
-
-                                    <span className="w-fit shrink-0 rounded-full border border-slate-700 bg-slate-900/60 px-5 py-2 text-xs font-bold uppercase tracking-[3px] text-slate-400">
-                                      {event.period}
-                                    </span>
-                                  </div>
-
-                                  {/* ACHIEVEMENT */}
-
-                                  {event.achievement && (
-                                    <div className="mt-8">
-                                      <div className="inline-flex items-center gap-4 rounded-2xl border border-cyan-500/30 bg-cyan-500/5 px-5 py-4">
-                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-500/10">
-                                          <FiAward
-                                            size={21}
-                                            className="text-cyan-400"
-                                          />
-                                        </div>
-
-                                        <div>
-                                          <p className="text-[10px] font-bold uppercase tracking-[3px] text-slate-500">
-                                            Achievement
-                                          </p>
-
-                                          <p className="mt-1 text-sm font-bold text-white md:text-base">
-                                            {event.achievement}
-                                          </p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  )}
-
-                                  {/* EVENT DESCRIPTION */}
-
-                                  <div className="mt-8">
-                                    <p className="text-xs font-semibold uppercase tracking-[4px] text-slate-500">
-                                      Activity Description
-                                    </p>
-
-                                    <ul className="mt-5 space-y-4">
-                                      {event.description.map(
-                                        (description, index) => (
-                                          <li
-                                            key={index}
-                                            className="flex items-start gap-4"
-                                          >
-                                            <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-cyan-400" />
-
-                                            <span className="text-sm leading-7 text-slate-400 md:text-base md:leading-8">
-                                              {description}
-                                            </span>
-                                          </li>
-                                        )
-                                      )}
-                                    </ul>
-                                  </div>
-
-                                  {/* EVENT SKILLS */}
-
-                                  {event.skills &&
-                                    event.skills.length > 0 && (
-                                      <div className="mt-8 border-t border-slate-800 pt-7">
-                                        <p className="text-xs font-semibold uppercase tracking-[4px] text-slate-500">
-                                          Skills & Technologies
-                                        </p>
-
-                                        <div className="mt-5 flex flex-wrap gap-3">
-                                          {event.skills.map(
-                                            (skill) => (
-                                              <span
-                                                key={skill}
-                                                className="rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2 text-xs text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400 hover:text-cyan-400"
-                                              >
-                                                {skill}
-                                              </span>
-                                            )
-                                          )}
-                                        </div>
-                                      </div>
-                                    )}
-
-                                  {/* ARTICLE */}
-
-                                  {event.article && (
-                                    <div className="mt-8 border-t border-slate-800 pt-7">
-                                      <a
-                                        href={event.article}
-                                        target="_blank"
-                                        rel="noreferrer"
-                                        className="inline-flex items-center gap-3 text-sm font-bold text-cyan-400 transition-all duration-300 hover:gap-4 hover:text-cyan-300"
-                                      >
-                                        View Event Article
-
-                                        <FiExternalLink size={17} />
-                                      </a>
-                                    </div>
-                                  )}
-                                </motion.div>
-                              )
-                            )}
-                          </div>
                         </div>
-                      )}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
-            );
-          })}
-        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ACTIVITIES */}
+                <div className="mt-24">
+                  <div className="mb-14 text-center">
+                    <p className="mb-4 text-sm font-semibold uppercase tracking-[0.4em] text-cyan-400">
+                      Activities & Achievements
+                    </p>
+
+                    <h3 className="text-3xl font-bold text-white md:text-5xl">
+                      Academic Journey
+                    </h3>
+                  </div>
+
+                  <div className="grid gap-5 md:grid-cols-2">
+                    {activities.map((activity, index) => (
+                      <motion.div
+                        key={activity.id}
+                        initial={{
+                          opacity: 0,
+                          y: 40,
+                        }}
+                        animate={{
+                          opacity: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          duration: 0.5,
+                          delay: index * 0.1,
+                        }}
+                        className="group rounded-2xl border border-slate-800 bg-slate-900/30 p-7 transition duration-300 hover:border-cyan-500/50"
+                      >
+                        <div className="flex items-start justify-between gap-5">
+                          <div>
+                            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-cyan-400">
+                              {activity.role}
+                            </p>
+
+                            <h4 className="mt-3 text-xl font-bold leading-8 text-white">
+                              {activity.title}
+                            </h4>
+                          </div>
+
+                          <span className="shrink-0 rounded-full border border-slate-700 px-4 py-2 text-xs font-semibold text-slate-400">
+                            {activity.year}
+                          </span>
+                        </div>
+
+                        {activity.achievement && (
+                          <div className="mt-6">
+                            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/5 px-4 py-2 text-sm font-semibold text-emerald-400">
+                              {activity.achievement}
+                            </span>
+                          </div>
+                        )}
+
+                        <p className="mt-6 leading-7 text-slate-400">
+                          {activity.description}
+                        </p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </Container>
     </section>
   );
