@@ -34,6 +34,7 @@ const skills = [
       "ZTE",
       "Ubiquiti",
       "Dell",
+      "Cumulus",
     ],
   },
 
@@ -48,6 +49,7 @@ const skills = [
       "Docker",
       "Proxmox",
       "VMware",
+      "Virtual Box",
     ],
   },
 
@@ -63,6 +65,7 @@ const skills = [
       "Grafana",
       "PRTG",
       "The Dude",
+      "Cacti",
     ],
   },
 ];

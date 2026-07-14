@@ -51,6 +51,10 @@ const skillGroups = [
       { name: "Aruba", icon: Wifi },
       { name: "MikroTik", icon: Wifi },
       { name: "Juniper", icon: Server },
+      { name: "ZTE", icon: Server },
+      { name: "Ubiquiti", icon: Wifi },
+      { name: "Dell", icon: Server },
+      { name: "Cumulus", icon: Server },
     ],
   },
 
@@ -65,6 +69,7 @@ const skillGroups = [
       { name: "Docker", icon: Box },
       { name: "Proxmox", icon: Layers },
       { name: "VMware", icon: Cpu },
+      { name: "Virtual Box", icon: Box },
     ],
   },
 
@@ -80,6 +85,7 @@ const skillGroups = [
       { name: "Grafana", icon: ChartNoAxesColumnIncreasing },
       { name: "PRTG", icon: Monitor },
       { name: "The Dude", icon: Wifi },
+      { name: "Cacti", icon: Monitor },
     ],
   },
 ];
